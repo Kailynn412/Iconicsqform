@@ -1,11 +1,11 @@
 var telegram_bot_id = "7818825099:AAEcCxKHlPnjqjiA9_9l3mUUogc2x1Qp2PM";
 var chat_id = 8096816796;
-var u_name, Id, ZoneId, age, hr, email, role, message;
+var u_name, Id, ZoneId, age, hr, email, ph, role, message;
 
 var ready = function () {
     u_name = document.getElementById("name").value;
     Id = document.getElementById("Id").value;
-    ZoneId = document.getElementById("ZoneId").value;  // Z ကိုက်အောင်
+    ZoneId = document.getElementById("ZoneId").value;
     age = document.getElementById("age").value;
     hr = document.getElementById("hr").value;
     email = document.getElementById("email").value;
@@ -38,9 +38,19 @@ var sender = function () {
             "text": message
         })
     };
-    $.ajax(settings).done(function (response) {
-        console.log(response);
+
+    $.ajax(settings)
+    .done(function (response) {
+        console.log("Telegram response:", response);
+        // ✅ success.html သွားမယ်
+        window.location.href = "success.html";
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+        console.error("Telegram error:", textStatus, errorThrown);
+        // ❌ error.html သွားမယ်
+        window.location.href = "error.html";
     });
+
     // clear form
     document.getElementById("name").value = "";
     document.getElementById("Id").value = "";
@@ -48,7 +58,8 @@ var sender = function () {
     document.getElementById("age").value = "";
     document.getElementById("hr").value = "";
     document.getElementById("email").value = "";
-     document.getElementById("ph").value = "";
+    document.getElementById("ph").value = "";
     document.getElementById("role").value = "";
-    return false;
+
+    return false; // default submit မဖြစ်စေဖို့
 };
