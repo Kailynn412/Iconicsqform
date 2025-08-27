@@ -1,0 +1,24 @@
+form input, 
+form select {
+  display: block;      /* တစ်ကြောင်းချင်းစီ */
+  margin-bottom: 10px; /* အောက်မှာ အနားလွတ် */
+  width: 100%;         /* form အကျယ်လုံးဖြည့်ချင်ရင် */
+  max-width: 400px;    /* အများဆုံးအကျယ် ထိန်းချင်ရင် */
+}
+form {
+  display: flex;
+  flex-direction: column; /* ဒေါင်လိုက် */
+  gap: 10px;              /* input တွေအကြား အာကာ */
+}
+
+form input,
+form select {
+  display: block;            /* တစ်ကြောင်းချင်းစီ (vertical) */
+  width: 100%;               /* form အကျယ် */
+  max-width: 400px;          /* အများဆုံး အကျယ် */
+  margin-bottom: 12px;       /* အောက်မှာ အာကာ */
+  padding: 10px;             /* box အတွင်းမှာ အာကာ */
+  border: 2px solid #4CAF50; /* အထူ 2px, အစိမ်း border */
+  border-radius: 6px;        /* အနားထောင့် ပတ်ပတ်လည် */
+  box-sizing: border-box;    /* padding ထည့်လည်း width မကြီးသွားအောင် */
+}
